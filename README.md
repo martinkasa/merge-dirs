@@ -1,7 +1,7 @@
 stratos-merge-dirs
 ==========
 
-Based on `binoculars/merge-dirs/` but is less verbose.
+Based on `binoculars/merge-dirs` but is less verbose.
 
 node module to synchronously and recursively merge files from one folder to another
 
