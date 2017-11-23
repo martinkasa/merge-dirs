@@ -102,7 +102,7 @@ export default function mergeDirs (src, dest, conflictResolver = conflictResolve
             copyFile(destFile, srcFile)
             break
           case conflictResolvers.skip:
-            console.log(`${destFile} exists, skipping...`)
+            //console.log(`${destFile} exists, skipping...`)
         }
       }
     }
