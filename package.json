@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/binocarlos/merge-dirs.git"
+    "url": "https://github.com/irfanhabib/merge-dirs.git"
   },
   "keywords": [
     "merge",
@@ -29,7 +29,7 @@
   "author": "Kai Davenport",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/binocarlos/merge-dirs/issues"
+    "url": "https://github.com/irfanhabib/merge-dirs/issues"
   },
   "dependencies": {
     "inquirer": "^0.11.0",
