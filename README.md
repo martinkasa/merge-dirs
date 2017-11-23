@@ -1,10 +1,12 @@
-merge-dirs
+stratos-merge-dirs
 ==========
+
+Based on `binoculars/merge-dirs/` but is less verbose.
 
 node module to synchronously and recursively merge files from one folder to another
 
 ```js
-var mergedirs = require('merge-dirs');
+var mergedirs = require('stratos-merge-dirs');
 
 // copy folder/a into folder/b
 mergedirs('/folder/a', '/folder/b');
@@ -24,7 +26,7 @@ $ merge-dirs folder/a folder/b --ask # for interactive mode
 ## install
 
 ```
-$ npm install merge-dirs
+$ npm install stratos-merge-dirs
 ```
 
 ## licence
