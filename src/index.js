@@ -22,6 +22,7 @@ export const conflictResolvers = {
 }
 
 function copyFile (file, location) {
+  console.log('Copying ' + file + ' to ' + location)
   fs.mkdirSync((file).split('/').slice(0, -1).join('/'), 0x1ed, true)
   fs.writeFileSync(file, fs.readFileSync(location))
 }
