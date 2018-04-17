@@ -21,13 +21,16 @@ export const conflictResolvers = {
   overwrite: 'overwrite'
 }
 
-function copyFile (file, location) {
-  console.log('Copying ' + file + ' to ' + location)
+function copyFile(file, location) {
+  var stat = fs.lstatSync(location);
+  if (stat.isSymbolicLink()) {
+    return;
+  }
   fs.mkdirSync((file).split('/').slice(0, -1).join('/'), 0x1ed, true)
   fs.writeFileSync(file, fs.readFileSync(location))
 }
 
-function renameQuestionFactory (dest) {
+function renameQuestionFactory(dest) {
   const defaultNewName = `conflict-${dest.split(path.sep).pop()}`
   return {
     type: 'input',
@@ -37,7 +40,7 @@ function renameQuestionFactory (dest) {
   }
 }
 
-function conflictQuestionFactory (f1, f2) {
+function conflictQuestionFactory(f1, f2) {
   return {
     type: 'list',
     name: 'resolution',
@@ -46,7 +49,7 @@ function conflictQuestionFactory (f1, f2) {
   }
 }
 
-function saveRenamedFile (src, dest) {
+function saveRenamedFile(src, dest) {
   return (answer) => {
     const newName = answer.fileName
     const newDest = dest.split(path.sep).slice(0, -1).join(path.sep) + path.sep + newName
@@ -54,7 +57,7 @@ function saveRenamedFile (src, dest) {
   }
 }
 
-function resolveConflict (src, dest) {
+function resolveConflict(src, dest) {
   return (answer) => {
     switch (answer.resolution) {
       case 'overwrite':
@@ -69,12 +72,12 @@ function resolveConflict (src, dest) {
   }
 }
 
-function fileAsk (src, dest) {
+function fileAsk(src, dest) {
   var question = conflictQuestionFactory(src, dest)
   inquirer.prompt([question], resolveConflict(src, dest))
 }
 
-export default function mergeDirs (src, dest, conflictResolver = conflictResolvers.skip) {
+export default function mergeDirs(src, dest, conflictResolver = conflictResolvers.skip) {
   // handle false, for backward compatability
   if (conflictResolver === false) {
     conflictResolver = conflictResolvers.skip
