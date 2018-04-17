@@ -1,6 +1,6 @@
 {
   "name": "stratos-merge-dirs",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "node module to synchronously and recursively merge files from one folder to another",
   "main": "dist/index.js",
   "bin": "dist/bin.js",
@@ -26,7 +26,7 @@
       "stage-0"
     ]
   },
-  "author": "Kai Davenport",
+  "author": "Irfan Habib",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/irfanhabib/merge-dirs/issues"
@@ -38,7 +38,8 @@
     "path": "^0.12.7"
   },
   "devDependencies": {
-    "babel-cli": "^6.3.17",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
     "babel-preset-es2015": "^6.3.13",
     "babel-preset-stage-0": "^6.3.13",
     "babel-register": "^6.3.13",
