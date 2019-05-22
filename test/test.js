@@ -16,7 +16,7 @@
   Module dependencies.
 */
 import mergedirs from '../src'
-import fs from 'node-fs'
+import fs from 'fs'
 
 /* globals describe, it */
 describe('merge dirs', function () {
@@ -24,7 +24,7 @@ describe('merge dirs', function () {
     fs.mkdirSync(__dirname + '/c')
     mergedirs(__dirname + '/a', __dirname + '/c')
     mergedirs(__dirname + '/b', __dirname + '/c')
-		//
+    //
     fs.existsSync(__dirname + '/c/hello.txt').should.equal(true)
     fs.existsSync(__dirname + '/c/world.txt').should.equal(true)
     done()
